@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 14:36:39 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/14 15:01:00 by aalves-p         ###   ########.fr       */
+/*   Created: 2022/11/14 15:05:46 by aalves-p          #+#    #+#             */
+/*   Updated: 2022/11/14 15:06:25 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./libft/libft.h"
+#include "ft_printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *novo)
+int	ft_putchar(int c)
 {
-	t_list	*temp;
-
-	if (!(*lst))
-	{
-		*lst = novo;
-		return ;
-	}
-	temp = *lst;
-	temp = ft_lstlast(temp);
-	temp->next = novo;
+	write(1, &c, 1);
+	return (1);
 }

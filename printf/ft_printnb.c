@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_printnb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 14:36:39 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/14 15:01:00 by aalves-p         ###   ########.fr       */
+/*   Created: 2022/11/14 16:53:37 by aalves-p          #+#    #+#             */
+/*   Updated: 2022/11/14 16:58:09 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./libft/libft.h"
+#include "ft_printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *novo)
+int	ft_printnb(int nb)
 {
-	t_list	*temp;
+	int		i;
+	char	*str;
+	int		len;
 
-	if (!(*lst))
-	{
-		*lst = novo;
-		return ;
-	}
-	temp = *lst;
-	temp = ft_lstlast(temp);
-	temp->next = novo;
+	len = 0;
+	i = 0;
+	str = ft_itoa(nb);
+	len = ft_putstr(str);
+	free(str);
+	return (len);
 }
