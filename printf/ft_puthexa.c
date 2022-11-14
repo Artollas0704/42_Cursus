@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:19:46 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/14 17:40:37 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:44:53 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ int	ft_puthexa(unsigned int nb, char lowup)
 		ft_puthexa (nb / 16, lowup);
 		ft_puthexa (nb % 16, lowup);
 	}
-	//free(hexa);
 	return (len);
 }
+//free(hexa)? error?
