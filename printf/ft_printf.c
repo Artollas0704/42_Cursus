@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:42:14 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/14 16:58:51 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:04:52 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	ft_print(va_list args, int toprint)
 		len += ft_putstr(va_arg(args, char *));
 	if (toprint == 'd' || toprint == 'i')
 		len += ft_printnb(va_arg(args, int));
+	if (toprint == '%')
+		len += ft_putchar('%');
 	return (len);
 }
 
