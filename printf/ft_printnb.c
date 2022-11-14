@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:53:37 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/14 16:58:09 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:35:37 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 
 int	ft_printnb(int nb)
 {
-	int		i;
 	char	*str;
 	int		len;
 
 	len = 0;
-	i = 0;
 	str = ft_itoa(nb);
 	len = ft_putstr(str);
 	free(str);

@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:42:14 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/14 17:04:52 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:43:20 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ int	ft_print(va_list args, int toprint)
 	len = 0;
 	if (toprint == 'c')
 		len += ft_putchar(va_arg(args, int));
-	if (toprint == 's')
+	else if (toprint == 's')
 		len += ft_putstr(va_arg(args, char *));
-	if (toprint == 'd' || toprint == 'i')
+	else if (toprint == 'd' || toprint == 'i')
 		len += ft_printnb(va_arg(args, int));
-	if (toprint == '%')
+	else if (toprint == '%')
 		len += ft_putchar('%');
+	else if (toprint == 'x' || toprint == 'X')
+		len += ft_puthexa(va_arg(args, unsigned int), toprint);
 	return (len);
 }
 
@@ -43,7 +45,7 @@ int	ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i] == '%')
-			len += ft_print(args, str[i + 1]);
+			len += ft_print(args, str[++i]);
 		else
 			len += ft_putchar(str[i]);
 		i++;
