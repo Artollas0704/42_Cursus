@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:42:14 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/14 17:43:20 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:27:26 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,14 @@ int	ft_print(va_list args, int toprint)
 	else if (toprint == '%')
 		len += ft_putchar('%');
 	else if (toprint == 'x' || toprint == 'X')
-		len += ft_puthexa(va_arg(args, unsigned int), toprint);
+	{
+		if (toprint == 'x')
+			len += ft_puthexa(va_arg(args, unsigned int), "0123456789abcdef");
+		else if (toprint == 'X')
+			len += ft_puthexa(va_arg(args, unsigned int), "0123456789ABCDEF");
+	}
+	else if (toprint == 'u')
+		len += ft_putunsigned(va_arg(args, unsigned int));
 	return (len);
 }
 
@@ -53,3 +60,4 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (len);
 }
+

@@ -6,7 +6,7 @@
 #    By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 14:45:58 by aalves-p          #+#    #+#              #
-#    Updated: 2022/11/14 17:21:35 by aalves-p         ###   ########.fr        #
+#    Updated: 2022/11/15 19:09:34 by aalves-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ ft_putstr.c \
 ft_putchar.c \
 ft_printnb.c \
 ft_puthexa.c \
+ft_putunsigned.c \
+ft_itoa.c \
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) 

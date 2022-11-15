@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 16:19:38 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/15 19:21:21 by aalves-p         ###   ########.fr       */
+/*   Created: 2022/11/15 18:59:39 by aalves-p          #+#    #+#             */
+/*   Updated: 2022/11/15 19:04:37 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
+#include "./libft/libft.h"
+#include "ft_printf.h"
 
-int	ft_printf(const char *str, ...);
-int	ft_putstr(char *str);
-int	ft_putchar(int c);
-int	ft_printnb(int nb);
-int	ft_puthexa(unsigned int nb, char *hexa);
-int	ft_putunsigned(unsigned int nb);
-int	ft_putpointer(void	*ptr);
-#endif
+int	ft_putpointer(void	*ptr)
+{
+	int	len;
+
+	len = 0;
+	if (!ptr)
+	{
+		len = write(1, "(nil)", 5);
+		return (len);
+	}
+	len = ft_puthexa((unsigned int)ptr, "0123456789abcdef");
+}
