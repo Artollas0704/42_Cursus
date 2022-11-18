@@ -6,11 +6,10 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:56:48 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/15 18:03:37 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:38:35 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
 #include "ft_printf.h"
 
 static char	*ft_writenumb(char *ptr, unsigned int nb, int counter)
@@ -68,5 +67,6 @@ int	ft_putunsigned(unsigned int nb)
 	len = 0;
 	str = ft_itoaun(nb);
 	len = ft_putstr(str);
+	free(str);
 	return (len);
 }

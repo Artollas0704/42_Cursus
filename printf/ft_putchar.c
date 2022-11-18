@@ -6,11 +6,10 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:05:46 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/14 15:06:25 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:38:13 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
 #include "ft_printf.h"
 
 int	ft_putchar(int c)

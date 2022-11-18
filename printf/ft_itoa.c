@@ -6,13 +6,13 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:39:18 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/15 19:10:20 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:39:13 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_writenumb(char *ptr, long nb, int counter)
+static char	*ft_writenumb(char *ptr, long nb, int counter)
 {
 	ptr[counter] = '\0';
 	counter -= 1;

@@ -6,14 +6,14 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:42:14 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/15 19:27:26 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:37:14 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
 #include "ft_printf.h"
+#include <limits.h>
 
-int	ft_print(va_list args, int toprint)
+static int	ft_print(va_list args, int toprint)
 {
 	int	len;
 
@@ -35,6 +35,8 @@ int	ft_print(va_list args, int toprint)
 	}
 	else if (toprint == 'u')
 		len += ft_putunsigned(va_arg(args, unsigned int));
+	else if (toprint == 'p')
+		len += ft_putpointer(va_arg(args, unsigned long int));
 	return (len);
 }
 
@@ -61,3 +63,12 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
+/* int main()
+{
+	int res;
+	res =0;
+	//printf(" %p %p ", LONG_MIN, LONG_MAX);
+	ft_printf(" %p %p ", LONG_MIN, LONG_MAX);
+	res = ft_printf("Numero minha funcao %p\n", "Hello");
+	ft_printf("Numero caracteres %d\n", res);
+} */

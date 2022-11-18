@@ -6,11 +6,10 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:19:46 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/15 17:54:41 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:38:19 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
 #include "ft_printf.h"
 
 int	ft_puthexa(unsigned int nb, char *hexa)
@@ -23,4 +22,3 @@ int	ft_puthexa(unsigned int nb, char *hexa)
 	counter += ft_putchar(hexa[nb % 16]);
 	return (counter);
 }
-// free(hexa)? error?

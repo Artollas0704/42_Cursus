@@ -6,14 +6,14 @@
 #    By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 14:45:58 by aalves-p          #+#    #+#              #
-#    Updated: 2022/11/15 19:09:34 by aalves-p         ###   ########.fr        #
+#    Updated: 2022/11/18 00:36:02 by aalves-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
 CFLAGS= -Wall -Wextra -Werror
-LIBCREATE = ar rcs
+LIBCREATE = ar rc
 RM = rm -f
 OBJS = $(FILE_SRCS:.c=.o)
 FILE_SRCS = ft_printf.c \
@@ -23,6 +23,7 @@ ft_printnb.c \
 ft_puthexa.c \
 ft_putunsigned.c \
 ft_itoa.c \
+ft_putpointer.c \
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) 
