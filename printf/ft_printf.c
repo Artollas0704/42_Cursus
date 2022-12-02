@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:42:14 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/18 00:37:14 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:14:53 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,13 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-/* int main()
+int main()
 {
-	int res;
-	res =0;
+	/* int res;
+	res =0; */
 	//printf(" %p %p ", LONG_MIN, LONG_MAX);
-	ft_printf(" %p %p ", LONG_MIN, LONG_MAX);
-	res = ft_printf("Numero minha funcao %p\n", "Hello");
-	ft_printf("Numero caracteres %d\n", res);
-} */
+	printf("%u\n", -245);
+	ft_printf("%u\n", -245);
+	/* res = ft_printf("Numero minha funcao %p\n", "Hello");
+	ft_printf("Numero caracteres %d\n", res); */
+}

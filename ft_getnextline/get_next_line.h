@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 17:19:46 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/11/18 11:13:00 by aalves-p         ###   ########.fr       */
+/*   Created: 2022/11/18 01:36:11 by aalves-p          #+#    #+#             */
+/*   Updated: 2022/12/02 20:09:43 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
 
-int	ft_puthexa(unsigned int nb, char *hexa)
-{
-	int	counter;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
-	counter = 0;
-	if (nb >= 16)
-		counter += ft_puthexa(nb / 16, hexa);
-	counter += ft_putchar(hexa[nb % 16]);
-	return (counter);
-}
+char	*get_next_line(int fd);
+char	*ft_nextline(char *stash);
+int		ft_strlen(char *str);
+#endif
