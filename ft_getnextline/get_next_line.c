@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 01:35:12 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/12/06 00:48:20 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/12/06 02:12:36 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*get_next_line(int fd)
 		return (0);
 	}
 	str = NULL;
-	while (stash[0] || read(fd, stash, BUFFER_SIZE) > 0)
+	while (*stash || read(fd, stash, BUFFER_SIZE) > 0)
 	{
 		str = ft_strjoin(stash, str);
 		if (ft_check(stash) >= 0)

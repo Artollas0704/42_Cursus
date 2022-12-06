@@ -6,15 +6,15 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:34:51 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/12/06 00:49:40 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/12/06 02:17:04 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (!str)
@@ -26,14 +26,11 @@ int	ft_strlen(const char *str)
 
 char	*ft_strjoin(char *stash, char *str)
 {
-	int			i;
-	char		*line;
-	int			j;
+	size_t			i;
+	char			*line;
 
-	j = 0;
 	i = 0;
-	//printf("String size %d, Stash Size %d", ft_strlen(str), ft_strlen(stash));
-	line = (char *)malloc(ft_strlen(str) + ft_strlen(stash) + 1 * sizeof(char));
+	line = malloc((ft_strlen(stash) + ft_strlen(str)) + 1);
 	if (!line)
 		return (0);
 	while (str && str[i])
@@ -41,10 +38,10 @@ char	*ft_strjoin(char *stash, char *str)
 		line[i] = str[i];
 		i++;
 	}
-	while (stash[j] && stash)
+	while (*stash)
 	{
-		line[i++] = stash[j++];
-		if (stash[j] == '\n')
+		line[i++] = *stash;
+		if (*stash++ == '\n')
 			break ;
 	}
 	line[i] = 0;
