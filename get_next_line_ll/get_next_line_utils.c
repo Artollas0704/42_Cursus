@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 10:09:09 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/12/07 12:22:51 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:37:37 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,32 @@ int	ft_strlen(char *str)
 	return (i + (str[i] == '\n'));
 }
 
-void	next_line(t_list **stash, t_lista **str)
+char	*next_line(t_list *stash, t_lista *str)
 {
 	int		i;
+	int 	j;
+
+	j = 0;
 	i = 0;
-	(*str)->temp = malloc(ft_strlen((*stash)->stash) + ft_strlen((*str)->line) + 1);
-	while ((*str)->line && (*str)->line[i])
+		printf("Value of line inside %s\n", str->line);
+
+	str->temp = malloc(ft_strlen(stash->stash) + ft_strlen(str->line) + 1);
+	while (str->line && str->line[i])
 	{
-		(*str)->temp[i] = (*str)->line[i];
+		str->temp[i] = str->line[i];
+		printf("str to temp %s\n", str->temp);
 		i++;
 	}
-	while (*(*stash)->stash)
+	while (stash->stash[j])
 	{
-		(*str)->temp[i++] = *(*stash)->stash;
-		printf("%s\n", (*str)->temp);
-		if (*(*stash)->stash++ == '\n')
+		str->temp[i++] = stash->stash[j];
+		if (stash->stash[j++] == '\n')
 			break ;
 	}
-	(*str)->temp[i] = 0;
-	free ((*str)->line);
+	str->temp[i] = 0;
+	free (str->line);
+	printf("Temp %s\n", str->temp);
+	return (str->temp);
 }
 
 int	check(t_list **stash)
@@ -54,9 +61,10 @@ int	check(t_list **stash)
 	j = -1;
 	while ((*stash)->stash[++i])
 	{
+		printf("Stash being cleared %c\n", (*stash)->stash[i]);
 		if ((*stash)->stash[i] == '\n')
 		{
-			(*stash)->stash[++i] = 0;
+			(*stash)->stash[i++] = 0;
 			j = 0;
 			break ;
 		}
@@ -70,5 +78,7 @@ int	check(t_list **stash)
 			(*stash)->stash[i++] = 0;
 		}
 	}
+	printf("Stash rewrite %s\n", (*stash)->stash);
 	return (j);
 }
+

@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 09:48:47 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/12/07 12:17:55 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:47:33 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static t_list	*stash;
+	static t_list *stash;
 	t_lista			*line;
 
 	stash = (t_list *)malloc(sizeof(t_list));
@@ -24,15 +24,18 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	line->line = NULL;
-	stash->stash = (char *)malloc(BUFFER_SIZE + 1);
-	stash->stash[BUFFER_SIZE] = 0;
+		printf("Check Stash %s\n", stash->stash);
 	while (*stash->stash || read(fd, stash->stash, BUFFER_SIZE) > 0)
 	{
-		next_line(&stash, &line);
+		line->line = next_line(stash, line);
 		if (check(&stash) >= 0)
 			break ;
+		printf("Value of line %s\n", line->line);
+		//cleartemp(line);
+		//printf("Check Stash %s\n", stash->stash);
 	}
-	return (line->temp);
+	//printf("line %s\n", line->line);
+	return (line->line);
 }
 
 int	main()
@@ -40,5 +43,7 @@ int	main()
 	int		fd;
 	fd = open("file.txt", O_RDONLY);
 	printf("First Line %s", get_next_line(fd));
+	printf("Second Line %s", get_next_line(fd));
+	printf("Theree Line %s", get_next_line(fd));
 	close(fd);
 }
