@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 01:35:12 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/12/07 09:34:48 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/12/14 09:46:12 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,13 @@ char	*get_next_line(int fd)
 	int			i;
 
 	i = -1;
-	if (read(fd, 0, 0) < 0 || BUFFER_SIZE < 1)
+	if (read(fd, 0, 0) < 0 || BUFFER_SIZE < 1 || fd >= FOPEN_MAX)
 	{
-		while (stash[fd][++i])
+		if (fd > 0 && fd < FOPEN_MAX)
+		{
+			while (stash[fd][++i])
 			stash[fd][i] = 0;
+		}
 		return (0);
 	}
 	str = NULL;
@@ -37,14 +40,12 @@ char	*get_next_line(int fd)
 	{
 		str = ft_strjoin(stash[fd], str);
 		if (ft_check(stash[fd]) >= 0)
-		{
 			break ;
-		}
 	}
 	return (str);
 }
 
-int main()
+/* int main()
 {
 	int fd = open("file.txt", O_RDONLY);
 	int fd2 = open("file2.txt", O_RDONLY);
@@ -54,4 +55,4 @@ int main()
 	printf("Read this %s\n", str1);
 	printf("Read this %s\n", str2);
 	printf("Read this %s\n", str3);
-}
+} */
