@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 10:09:09 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/12/07 16:37:37 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:17:20 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,17 @@ int	ft_strlen(char *str)
 	return (i + (str[i] == '\n'));
 }
 
-char	*next_line(t_list *stash, t_lista *str)
+char	*next_line(t_list *stash, t_list *str)
 {
 	int		i;
-	int 	j;
+	int		j;
 
 	j = 0;
 	i = 0;
-		printf("Value of line inside %s\n", str->line);
-
 	str->temp = malloc(ft_strlen(stash->stash) + ft_strlen(str->line) + 1);
 	while (str->line && str->line[i])
 	{
 		str->temp[i] = str->line[i];
-		printf("str to temp %s\n", str->temp);
 		i++;
 	}
 	while (stash->stash[j])
@@ -48,7 +45,6 @@ char	*next_line(t_list *stash, t_lista *str)
 	}
 	str->temp[i] = 0;
 	free (str->line);
-	printf("Temp %s\n", str->temp);
 	return (str->temp);
 }
 
@@ -61,7 +57,6 @@ int	check(t_list **stash)
 	j = -1;
 	while ((*stash)->stash[++i])
 	{
-		printf("Stash being cleared %c\n", (*stash)->stash[i]);
 		if ((*stash)->stash[i] == '\n')
 		{
 			(*stash)->stash[i++] = 0;
@@ -78,7 +73,5 @@ int	check(t_list **stash)
 			(*stash)->stash[i++] = 0;
 		}
 	}
-	printf("Stash rewrite %s\n", (*stash)->stash);
 	return (j);
 }
-

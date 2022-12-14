@@ -6,7 +6,7 @@
 /*   By: aalves-p <aalves-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 01:35:12 by aalves-p          #+#    #+#             */
-/*   Updated: 2022/12/14 09:34:54 by aalves-p         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:07:53 by aalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*get_next_line(int fd)
 	return (str);
 }
 
-/* int main()
+int main()
 {
 	int fd = open("file.txt", O_RDONLY);
 	printf("fd Value %d\n", fd);
@@ -51,6 +51,11 @@ char	*get_next_line(int fd)
 	char *str3 = get_next_line(fd);
 	printf("Read this %s\n", str1);
 	printf("Read this %s\n", str2);
+	free(get_next_line(fd));
 	printf("Read this %s\n", str3);
+	
+	free(str1);
+	free(str2);
+	free(str3);
+	return (0);
 }
- */
